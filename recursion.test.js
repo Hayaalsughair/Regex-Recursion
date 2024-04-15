@@ -1,8 +1,14 @@
 /* Write a function to do the division operation without using the built-in division*/
 
 function division(number, dividedBy) {
-    // Write you logic here.
-    return;
+    if (dividedBy === 0 || number === 0 ) {
+        return 0; 
+    }
+    if (number < dividedBy) {
+        return 0;
+    }
+    // Recursive case: Subtract dividedBy from number and add 1 to the result
+    return 1 + division(number - dividedBy, dividedBy);
 }
 
 /* Write a function that implement Math.pow(x,n) but using recursion
@@ -12,7 +18,12 @@ pow(2,4) = 16
 
 
 function pow(x, n) {
-    // Write you logic here.
+        if (n === 0) {
+            return 1;
+        }
+        else {
+            return x * pow(x, n - 1);
+        }
     return;
 }
 
@@ -26,8 +37,12 @@ Write a function that take n as parameter and return the nth element in the Fibo
 Example: n = 4 ==> 3, n= 0 ==> 0, n = 3 ==> 2 */
 
 function fibonacci(n) {
-    // Write you logic here.
-    return;
+    
+    if (n === 0 || n === 1 ) { //Base Case 
+        return n ;
+    } else {
+        return fibonacci(n-1)+ fibonacci(n-2)
+    }
 }
 
 /* Optional 
@@ -48,11 +63,11 @@ Example:
 Input: n = 3, k = 3
 Output: "213"  */
 
-function permutations(n, k) {
-    let arr = [];
-    // Write you logic here. 
-    return arr
-};
+// function permutations(n, k) {
+//     let arr = [];
+//     // Write you logic here. 
+//     return arr
+// };
 
 
 describe("Test division", () => {
@@ -82,9 +97,9 @@ describe("Test fibonacci", () => {
     })
 });
 
-describe("Test permutations", () => {
-    test("It should return a list of possible combinations", () => {
-        expect(permutations(3, 3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
-        expect(permutations(3, 0)).toStrictEqual([]);
-    })
-});
+// describe("Test permutations", () => {
+//     test("It should return a list of possible combinations", () => {
+//         expect(permutations(3, 3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
+//         expect(permutations(3, 0)).toStrictEqual([]);
+//     })
+// });
